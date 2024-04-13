@@ -9,6 +9,8 @@ import silvadev.com.br.mylibrary.dto.author.AuthorIdDTO;
 import silvadev.com.br.mylibrary.dto.author.AuthorRequestDTO;
 import silvadev.com.br.mylibrary.services.AuthorService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/authors")
 @RequiredArgsConstructor
@@ -21,11 +23,17 @@ public class AuthorController {
         return ResponseEntity.ok(author);
     }
 
+    @GetMapping
+    public ResponseEntity<List<Author>> getAuthor() {
+        List<Author> authorList = this.authorService.getAuthor();
+        return ResponseEntity.ok(authorList);
+    }
+
     @PostMapping
     public ResponseEntity<AuthorIdDTO> createAuthor(@RequestBody AuthorRequestDTO body, UriComponentsBuilder uriComponentsBuilder) {
         AuthorIdDTO authorId = this.authorService.createAuthor(body);
 
-        var uri = uriComponentsBuilder.path("/authors/{id}").buildAndExpand(authorId).toUri();
+        var uri = uriComponentsBuilder.path("/authors/{id}").buildAndExpand(authorId.authorId()).toUri();
 
         return ResponseEntity.created(uri).body(authorId);
     }
