@@ -1,0 +1,10 @@
+CREATE TABLE books (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author_id VARCHAR(255) NOT NULL,
+    category_id VARCHAR(255) NOT NULL,
+    is_active BIT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT books_author_id_fkey FOREIGN KEY (author_id) REFERENCES authors (id) ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT books_category_id_fkey FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE RESTRICT ON UPDATE CASCADE
+);
