@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import silvadev.com.br.mylibrary.domain.author.Author;
+import silvadev.com.br.mylibrary.domain.category.Category;
 
 import java.time.LocalDateTime;
 
@@ -27,6 +28,13 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

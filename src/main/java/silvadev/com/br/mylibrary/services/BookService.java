@@ -29,12 +29,12 @@ public class BookService {
         Book newBook = new Book();
         newBook.setTitle(bookDTO.title());
         newBook.setAuthor(bookDTO.author());
+        newBook.setCategory(bookDTO.category());
+        newBook.setIsActive(true);
         newBook.setCreatedAt(LocalDateTime.now());
 
         this.bookRepository.save(newBook);
 
         return new BookIdDTO(newBook.getId());
     }
-
-
 }
