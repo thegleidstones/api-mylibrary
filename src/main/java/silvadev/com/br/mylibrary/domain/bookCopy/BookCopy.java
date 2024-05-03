@@ -41,6 +41,9 @@ public class BookCopy {
     @Column(name = "acquisition_at")
     private LocalDateTime acquisitionAt;
 
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 }

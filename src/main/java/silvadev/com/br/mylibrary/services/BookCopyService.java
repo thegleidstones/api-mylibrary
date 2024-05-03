@@ -33,6 +33,7 @@ public class BookCopyService {
         bookCopy.setEdition(dto.edition());
         bookCopy.setEditionDate(dto.editionDate());
         bookCopy.setAcquisitionAt(dto.acquisitionAt());
+        bookCopy.setIsActive(true);
         bookCopy.setCreatedAt(LocalDateTime.now());
 
         this.bookCopyRepository.save(bookCopy);
