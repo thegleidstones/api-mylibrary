@@ -19,6 +19,7 @@ public class AuthorService {
     public AuthorIdDTO createAuthor(AuthorRequestDTO authorDTO) {
         Author newAuthor = new Author();
         newAuthor.setName(authorDTO.name());
+        newAuthor.setIsActive(true);
         newAuthor.setCreatedAt(LocalDateTime.now());
 
         this.authorRepository.save(newAuthor);

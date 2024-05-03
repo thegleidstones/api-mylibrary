@@ -23,6 +23,9 @@ public class Author {
     @Column(nullable = false)
     private String name;
 
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 }
