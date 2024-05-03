@@ -1,5 +1,6 @@
 package silvadev.com.br.mylibrary.domain.bookLoanItem;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,11 +25,15 @@ public class BookLoanItem {
 
     @ManyToOne
     @JoinColumn(name = "book_loan_id")
+    @JsonIgnore
     private BookLoan bookLoan;
 
     @ManyToOne
     @JoinColumn(name = "book_copy_id")
     private BookCopy bookCopy;
+
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

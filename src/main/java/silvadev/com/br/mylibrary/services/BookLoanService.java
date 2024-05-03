@@ -32,12 +32,15 @@ public class BookLoanService {
         bookLoan.setBookLoanItems(dto.bookLoanItems());
         bookLoan.setLoanDate(dto.loanDate());
         bookLoan.setDevolutionDate(bookLoan.getLoanDate().plusDays(14));
+        bookLoan.setIsActive(true);
         bookLoan.setCreatedAt(LocalDateTime.now());
 
         this.bookLoanRepository.save(bookLoan);
 
         for (BookLoanItem bookLoanItem : bookLoan.getBookLoanItems()) {
             bookLoanItem.setBookLoan(bookLoan);
+            bookLoanItem.setIsActive(true);
+            bookLoanItem.setCreatedAt(LocalDateTime.now());
             this.bookLoanItemRepository.save(bookLoanItem);
         }
 

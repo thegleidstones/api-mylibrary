@@ -37,6 +37,9 @@ public class BookLoan {
     @OneToMany(mappedBy = "bookLoan")
     private List<BookLoanItem> bookLoanItems = new ArrayList<>();
 
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 }
