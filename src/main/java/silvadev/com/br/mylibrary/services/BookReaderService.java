@@ -29,6 +29,7 @@ public class BookReaderService {
         bookReader.setName(dto.name());
         bookReader.setEmail(dto.email());
         bookReader.setPhone(dto.phone());
+        bookReader.setIsActive(true);
         bookReader.setCreatedAt(LocalDateTime.now());
 
         this.bookReaderRepository.save(bookReader);

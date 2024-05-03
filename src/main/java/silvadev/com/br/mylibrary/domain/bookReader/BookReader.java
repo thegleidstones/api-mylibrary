@@ -29,6 +29,9 @@ public class BookReader {
     @Column(nullable = false)
     private String phone;
 
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 }
