@@ -27,6 +27,7 @@ public class PublisherService {
     public PublisherIdDTO createPublisher(PublisherRequestDTO publisherDTO) {
         Publisher newPublisher = new Publisher();
         newPublisher.setName(publisherDTO.name());
+        newPublisher.setIsActive(true);
         newPublisher.setCreatedAt(LocalDateTime.now());
 
         this.publisherRepository.save(newPublisher);
